@@ -39,19 +39,43 @@ the better the profit margin.
 8. How do higher priced apps compare to free apps (rating, review count, etc)?
 */
 
--- App Store column names: name/size_bytes/currency/price/review_count/rating/content_rating/primary_genre
+-- App Store column names: name/size/currency/price/review_count/rating/content_rating/genres
 -- Play Store column names: name/category/rating/review_count/size/install_count/type/price/content_rating/genres
 
---Create a left join based on app name.
+ALTER TABLE app_store_apps
+DROP COLUMN currency;
+
+ALTER TABLE app_store_apps
+RENAME COLUMN genre TO genres;
+
+ALTER TABLE app_store_apps
+RENAME COLUMN size_bytes TO size;
+
+ALTER TABLE app_store_apps
+DROP COLUMN size_bytes TO size;
+
+SELECT *
+FROM app_store_apps;
+
+
+-- Which genre has the most titles in app store?
+SELECT primary_genre, COUNT(primary_genre)
+FROM app_store_apps
+GROUP BY primary_genre;
+
+-- Which genre has the most titles in play store?
+SELECT genres, COUNT(genres)
+FROM play_store_apps
+GROUP BY genres;
+
+--Create inner join based on app name.
 
 SELECT *
 FROM app_store_apps AS a
-LEFT JOIN play_store_apps AS p
+INNER JOIN play_store_apps AS p
 ON a.name = p.name;
 
---This table has 7422 rows total. How many rows have been omitted?
-
-
+--This table has 553 rows total. How many rows have been omitted?
 
 
 SELECT genres, rating
@@ -60,7 +84,7 @@ WHERE rating > 4
 GROUP BY genres, rating
 ORDER BY rating DESC;
 
-SELECT COUNT(*) 
+SELECT * 
 FROM app_store_apps;
 
 SELECT *
