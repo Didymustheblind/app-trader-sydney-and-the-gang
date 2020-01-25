@@ -32,6 +32,16 @@ ON a.name = p.name
 WHERE a.content_rating = '4+' AND p.content_rating = 'Everyone';
 -- 302 apps from both tables 55% of all apps
 
+-- Let's look at the genre ratings for each table and see if there are any correlations. 
+SELECT DISTINCT(content_rating)
+FROM app_store_apps
+UNION
+SELECT content_rating
+FROM play_store_apps
+ORDER BY content_rating;
+-- 
+
+
 --WHERE a.price <= 0.99 AND p.price <= '.99' AND ROUND(((a.rating + p.rating)/2),2) >= 4.25;
 
 SELECT DISTINCT(content_rating)
@@ -62,6 +72,9 @@ WHERE price = 0.00;
 SELECT ROUND(AVG(price), 2)
 FROM app_store_apps
 WHERE rating >= 4.25;
+
+
+
 
 
 
