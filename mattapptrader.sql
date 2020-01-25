@@ -39,7 +39,21 @@ UNION
 SELECT content_rating
 FROM play_store_apps
 ORDER BY content_rating;
--- 
+
+-- How can I return results that show the percentage of content ratings within each table?
+SELECT ___
+	AVG(CASE WHEN 
+	   	AND
+	   	WHEN
+		AND
+	   END) AS ___,
+	AVG(CASE WHEN 
+	   	AND
+		WHEN
+		AND
+	   END) AS ___
+FROM ___
+GROUP BY ___;
 
 
 --WHERE a.price <= 0.99 AND p.price <= '.99' AND ROUND(((a.rating + p.rating)/2),2) >= 4.25;
