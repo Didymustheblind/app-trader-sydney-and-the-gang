@@ -59,7 +59,7 @@ WHERE price = 0.00;
 -- 4056 free apps
 
 -- Check the price on apps where the rating is greater than 4.25 from app store
-SELECT AVG(price)
+SELECT ROUND(AVG(price), 2)
 FROM app_store_apps
 WHERE rating >= 4.25;
 
