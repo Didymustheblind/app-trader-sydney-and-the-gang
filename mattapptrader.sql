@@ -18,10 +18,11 @@ Prepare a 5-10 minute presentation for the leadership team of App Trader.
 */
 
 -- Join the two tables on name, how many rows of data are in the join?
-SELECT COUNT(*)
+SELECT *
 FROM app_store_apps AS a
 INNER JOIN play_store_apps AS p
 ON a.name = p.name
+ORDER BY a.rating DESC;
 -- 553 rows
 
 -- How many apps have a content rating of Everyone or 4+?
