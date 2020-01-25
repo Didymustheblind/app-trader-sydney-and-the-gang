@@ -32,6 +32,13 @@ ON a.name = p.name
 WHERE a.content_rating = '4+' AND p.content_rating = 'Everyone';
 -- 302 apps from both tables 55% of all apps
 
+-- Can I use the above query as a subquery in a FROM statement to return the count of all content ratings?
+SELECT *
+	FROM app_store_apps AS a
+	INNER JOIN play_store_apps AS p
+	ON a.name = p.name
+	WHERE a.content_rating = '4+' AND p.content_rating = 'Everyone';
+
 -- Let's look at the genre ratings for each table and see if there are any correlations. 
 SELECT DISTINCT(content_rating)
 FROM app_store_apps
@@ -41,20 +48,13 @@ FROM play_store_apps
 ORDER BY content_rating;
 
 -- How can I return results that show the percentage of content ratings within each table?
-SELECT ___
-	AVG(CASE WHEN 
-	   	AND
-	   	WHEN
-		AND
-	   END) AS ___,
-	AVG(CASE WHEN 
-	   	AND
-		WHEN
-		AND
-	   END) AS ___
-FROM ___
-GROUP BY ___;
 
+
+-- Top 7 code ??
+SELECT DISTINCT a.name, round (((a.rating + b.rating) / 2), 2) as avg_rating From play_store_apps as a
+Inner join app_store_apps as b
+On a.name = b.name
+Order by avg_rating desc
 
 --WHERE a.price <= 0.99 AND p.price <= '.99' AND ROUND(((a.rating + p.rating)/2),2) >= 4.25;
 
