@@ -14,10 +14,10 @@ ON a.name = p.name
 			AND ROUND(((a.rating + p.rating)/2), 2) >= 4.25
 			AND a.price < 2
 		  )
-	AND (
+	/*AND (
 			a.primary_genre = 'Food & Drink'
 			OR a.primary_genre = 'Shopping'
 			OR a.primary_genre = 'Games'
 			OR a.primary_genre = 'News'
-		)
+		)*/
 ORDER BY avg_rating DESC;
