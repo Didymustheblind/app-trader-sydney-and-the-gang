@@ -1,4 +1,4 @@
-SELECT g.primary_genre, ROUND(AVG(avg_ebt),2) AS av_ebt
+SELECT g.content_rating, ROUND(AVG(avg_ebt),2) AS av_ebt
 FROM (
 	  WITH cte1 AS (
 					SELECT DISTINCT s.name, 
@@ -81,6 +81,6 @@ FROM (
 	  ON a.name = cte2.name
 	  ORDER BY avg_ebt DESC
 	  ) AS g
-GROUP BY g.primary_genre
+GROUP BY g.content_rating
 ORDER BY av_ebt DESC;
 
