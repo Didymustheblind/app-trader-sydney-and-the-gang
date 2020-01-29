@@ -84,3 +84,11 @@ FROM (
 GROUP BY g.content_rating
 ORDER BY av_ebt DESC;
 
+/* 
+========================
+Everyone 10+ - 447744.12
+Everyone - 432850.45
+Teen - 431866.95
+Mature 17+ 427118.18
+========================
+*/

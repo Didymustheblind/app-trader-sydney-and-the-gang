@@ -84,3 +84,12 @@ FROM (
 GROUP BY g.primary_genre
 ORDER BY av_ebt DESC;
 
+/*
+=======================
+"Productivity" - 455600.00
+"Book" - 450100.00
+"Games" - 449921.26
+"Reference" - 446000.00
+"Health & Fitness" - 444050.00
+
+
